@@ -1,27 +1,15 @@
-const getUserName = () => {
-  return firebase.auth().currentUser != null
-    ? firebase.auth().currentUser.displayName
-    : "";
-};
-
-const getUrlPhoto = () => {
-  if (firebase.auth().currentUser != null) {
-    return firebase.auth().currentUser.photoURL;
-  }
-};
-
-export const newPost = (textareaPost, postPrivate) => {
+// Creates new post on collection posts
+export const newPost = (user, textareaPost, postPrivate) => {
   firebase
     .firestore()
     .collection("posts")
     .add({
-      userName: getUserName(),
-      photoURL: getUrlPhoto(),
-      user: firebase.auth().currentUser.uid,
+      userName: user.displayName,
+      photoURL: user.photoURL,
+      user: user.uid,
       text: textareaPost,
       likes: 0,
       likeUsers: [],
-      comments: [],
       timestamp: firebase.firestore.FieldValue.serverTimestamp(),
       privacy: postPrivate,
     })
@@ -43,11 +31,7 @@ export const loadPosts = (user, callback) => {
   load.onSnapshot((querySnapshot) => {
     const posts = [];
     querySnapshot.forEach((doc) => {
-      if (
-        !doc.data().privacy ||
-        doc.data().user === user.uid ||
-        (doc.data().privacy && doc.data().user === user.uid)
-      ) {
+      if (!doc.data().privacy || doc.data().user === user.uid) {
         posts.push({
           id: doc.id,
           ...doc.data(),
@@ -114,7 +98,7 @@ export const likePost = (postId, userId) => {
       updateEdit(userIds, postId);
     })
     .catch((error) => {
-      console.log("error");
+      //  console.log('error');
     });
 };
 

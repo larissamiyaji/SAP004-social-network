@@ -13,20 +13,21 @@ body {
 
 /* FONTS */
 @font-face {
-  font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?cdm6kk');
-  src:  url('fonts/icomoon.eot?cdm6kk#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?cdm6kk') format('truetype'),
-    url('fonts/icomoon.woff?cdm6kk') format('woff'),
-    url('fonts/icomoon.svg?cdm6kk#icomoon') format('svg');
+  font-family: "icomoon";
+  src: url("fonts/icomoon.eot?cdm6kk");
+  src: url("fonts/icomoon.eot?cdm6kk#iefix") format("embedded-opentype"),
+    url("fonts/icomoon.ttf?cdm6kk") format("truetype"),
+    url("fonts/icomoon.woff?cdm6kk") format("woff"),
+    url("fonts/icomoon.svg?cdm6kk#icomoon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
 }
 
-[class^="icon-"], [class*=" icon-"] {
+[class^="icon-"],
+[class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
+  font-family: "icomoon" !important;
   speak: never;
   font-style: normal;
   font-weight: normal;
@@ -39,14 +40,30 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-comment:before {content: "\e900";}
-.icon-delete:before {content: "\e901";}
-.icon-facebook:before {content: "\e902";}
-.icon-github:before {content: "\e903";}
-.icon-google:before {content: "\e904";}
-.icon-image:before {content: "\e905";}
-.icon-like:before {content: "\e906";}
-.icon-profile:before {content: "\e907";}
+.icon-comment:before {
+  content: "\e900";
+}
+.icon-delete:before {
+  content: "\e901";
+}
+.icon-facebook:before {
+  content: "\e902";
+}
+.icon-github:before {
+  content: "\e903";
+}
+.icon-google:before {
+  content: "\e904";
+}
+.icon-image:before {
+  content: "\e905";
+}
+.icon-like:before {
+  content: "\e906";
+}
+.icon-profile:before {
+  content: "\e907";
+}
 /*------------*/
 
 /* containers */
@@ -76,17 +93,21 @@ body {
 }
 
 .container-home {
-  background-color: rgb(194, 133, 255, 0.30);
+  background-color: rgb(194, 133, 255, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
+.space {
+  margin-top: 90px;
+  min-height: 90vh;
+}
 /*------------*/
 
 /*login*/
 .login h1 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 2.8em;
   font-weight: 400;
   letter-spacing: 0.03em;
@@ -101,7 +122,7 @@ body {
 
 .alert {
   color: #3f1583;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 0.7em;
   letter-spacing: 0.01em;
@@ -110,7 +131,7 @@ body {
 }
 
 .welcome {
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-weight: 500;
   font-size: 0.87em;
   letter-spacing: 0.02em;
@@ -130,7 +151,7 @@ body {
 
 .data h2 {
   color: #3f1583;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1.5em;
   font-weight: 600;
   margin-bottom: 20px;
@@ -140,7 +161,7 @@ body {
 .data label {
   align-self: start;
   margin-bottom: 3px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 1em;
   padding-left: 12px;
@@ -158,7 +179,7 @@ body {
 }
 
 ::placeholder {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1em;
 }
 
@@ -173,7 +194,7 @@ body {
   border-style: none;
   background-color: #3f1583;
   color: white;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-weight: 500;
   font-size: 0.95em;
   letter-spacing: 0.01em;
@@ -195,7 +216,7 @@ body {
 .remember,
 .psw,
 .footer {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 0.85em;
   margin-top: 8px;
@@ -207,7 +228,7 @@ body {
 }
 
 .google p {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 0.85em;
   margin-top: 5px;
@@ -227,18 +248,17 @@ body {
   background-color: white;
   color: #c285ff;
 }
-
 /*------------*/
 
 /* HOME */
 /* Menu Hamburguer */
-header #menu{
+header #menu {
   width: 35px;
   height: 30px;
   margin: 25px 0 15px 15px;
   cursor: pointer;
 }
-.bar{
+.bar {
   height: 5px;
   width: 100%;
   display: block;
@@ -246,23 +266,23 @@ header #menu{
   transition: 0.3s ease;
   background-color: black;
 }
-header #bar1{
+header #bar1 {
   transform: translateY(-4px);
 }
-header #bar3{
+header #bar3 {
   transform: translateY(4px);
 }
-.nav-home li a{
+.nav-home li a {
   color: white;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   text-decoration: none;
   text-align: center;
   padding: 10px;
 }
-.nav-home li a:hover{
+.nav-home li a:hover {
   font-weight: bold;
 }
-.nav-home li{
+.nav-home li {
   list-style: none;
   padding: 3px 0;
   text-align: center;
@@ -272,51 +292,53 @@ header #bar3{
   font-size: 18px;
   font-style: normal;
 }
-.nav-home #li-logout{
-  background-color: #3F1583;
+.nav-home #li-logout {
+  background-color: #3f1583;
 }
-.nav-home #li-profile{
-  background-color: #FF9593;
+.nav-home #li-profile,
+.nav-home #li-home {
+  background-color: #ff9593;
 }
-.nav-home{
+.nav-home {
   padding: 0;
   margin: 0 10px;
   transition: 0.3s ease;
   display: none;
 }
-.menu-bg, #menu-bar{
+.menu-bg,
+#menu-bar {
   top: 0;
   left: 0;
   position: absolute;
 }
-.menu-bg{
+.menu-bg {
   z-index: 2;
   margin: 30px 0 20px 20px;
-  background-color: #C285FF;
+  background-color: #c285ff;
   border-radius: 50%;
   transition: 0.5s ease;
 }
-header #menu-bar{
+header #menu-bar {
   z-index: 3;
 }
-.change-bg{
+.change-bg {
   width: 280px;
   height: 250px;
   transform: translate(-60%, -30%);
 }
-.change .bar{
-  background-color: #FF9593;
+.change .bar {
+  background-color: #ff9593;
 }
-.change #bar1{
+.change #bar1 {
   transform: translateY(4px) rotateZ(-45deg);
 }
-.change #bar3{
+.change #bar3 {
   transform: translateY(-6px) rotateZ(45deg);
 }
-.change #bar2{
+.change #bar2 {
   opacity: 0;
 }
-.change{
+.change {
   display: block;
 }
 
@@ -326,7 +348,7 @@ nav {
   background-color: white;
   display: flex;
   height: 65px;
-  padding: 0 25px; 
+  padding: 0 25px;
   position: fixed;
   left: 0;
   right: 0;
@@ -336,7 +358,7 @@ nav {
 }
 
 nav h1 {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 1.85em;
   font-style: normal;
   font-weight: 400;
@@ -350,39 +372,60 @@ nav strong {
 }
 
 nav label {
-  display: flex;
-  align-items: center;
+  display: none;
 }
 
 nav img {
   height: 26px;
 }
 
-nav button { 
+nav button {
   background-color: white;
   border-style: none;
   color: black;
   cursor: pointer;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: 600;
   font-size: 0.93em;
   letter-spacing: 0.03em;
   flex-direction: row-reverse;
   padding: 10px 6px;
 }
-
-
 /*------------*/
 
 /*posts*/
-.news { 
-  display: flex; 
-  justify-content: center; 
-  flex-direction: column;
-  padding-top: 90px;
+.profile {
+  width: 280px;
 }
 
-.post-options{
+.background {
+  display: none;
+}
+
+.photo-figure {
+  display:inline-block;
+}
+
+.photo-name img{
+  width: 64px;
+  height: 64px;
+  border-radius: 32px;
+  margin-right: 10px;
+}
+
+.photo-name figcaption{
+  font-family: "Source Sans Pro", sans-serif;
+  font-weight: 600;
+  font-size: 1.25em;
+  letter-spacing: 0.02em;
+}
+.news {
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0 0 0;
+}
+
+.post-options {
   display: flex;
   flex-direction: row;
   align-self: flex-end;
@@ -390,17 +433,17 @@ nav button {
   margin: 10px 12px 0;
 }
 
-.post-options input{
+.post-options input {
   margin-top: 15px;
 }
 
-.post-options p{
+.post-options p {
   margin-top: 13px;
   margin-right: 5px;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   cursor: pointer;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.8em; 
+  font-family: "Fira Code", monospace;
+  font-size: 0.8em;
   font-weight: 600;
 }
 
@@ -422,8 +465,8 @@ nav button {
   border: 3px solid #c285ff;
   border-radius: 10px;
   background-color: rgba(255, 149, 147, 0.15);
-  color: #4F4F4F;
-  font-family: 'Source Sans Pro', sans-serif;
+  color: #4f4f4f;
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 0.9em; /*17px*/
   font-weight: 600;
   height: 108px;
@@ -433,15 +476,15 @@ nav button {
   width: 250px;
 }
 
-.post button { 
+.post button {
   align-self: flex-end;
   background: #3f1583;
   border: 0 none;
   border-radius: 15px;
   color: white;
   cursor: pointer;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.7em; 
+  font-family: "Fira Code", monospace;
+  font-size: 0.7em;
   font-weight: 600;
   padding: 5px 15px;
   letter-spacing: 0.03em;
@@ -456,9 +499,9 @@ nav button {
   align-items: center;
 }
 
-.privacy label{
+.privacy label {
   color: black;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.6em;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -486,8 +529,8 @@ nav button {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -498,12 +541,12 @@ nav button {
   left: 1.5px;
   bottom: 1.5px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked + .slider {
-  background-color:#3f1583;
+  background-color: #3f1583;
 }
 
 input:focus + .slider {
@@ -543,13 +586,13 @@ input:checked + .slider:before {
   padding: 12px;
 }
 
-.top figure{
+.top figure {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.top img{
+.top img {
   width: 32px;
   height: 32px;
   border-radius: 16px;
@@ -558,7 +601,7 @@ input:checked + .slider:before {
 
 .top figcaption {
   color: white;
-  font-family: 'Source Sans Pro', sans-serif; 
+  font-family: "Source Sans Pro", sans-serif;
   font-size: 0.8em;
   font-weight: 600;
   letter-spacing: 0.03em;
@@ -575,7 +618,7 @@ input:checked + .slider:before {
   border: 0 none;
   color: white;
   cursor: pointer;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.6em;
   font-weight: 500;
   letter-spacing: 0.03em;
@@ -587,18 +630,18 @@ input:checked + .slider:before {
   color: #c285ff;
 }
 
-.text textarea { 
+.text textarea {
   background-color: white;
-  border: 0 none ;
+  border: 0 none;
   outline: none;
-  font-family: 'Source Sans Pro';
+  font-family: "Source Sans Pro";
   font-size: 0.85em;
   padding: 15px 15px 10px;
   line-height: 1.4em;
   overflow-wrap: break-word;
   overflow-y: hidden;
   resize: none;
-  text-align: left; 
+  text-align: left;
   width: 276px;
   word-wrap: break-word;
 }
@@ -608,14 +651,14 @@ input:checked + .slider:before {
 }
 
 .bottom {
-  font-family: 'Source Sans Pro', sans-serif; 
+  font-family: "Source Sans Pro", sans-serif;
   display: flex;
   align-content: center;
   justify-content: space-between;
   padding: 0 5px 8px;
 }
 
-.like button{
+.like button {
   background-color: white;
   border: 0 none;
   font-size: 1.3em;
@@ -626,9 +669,9 @@ input:checked + .slider:before {
 
 .like p {
   align-items: center;
-  color: #3F1583;
+  color: #3f1583;
   display: flex;
-  font-family: 'Fira Code', monospace;
+  font-family: "Fira Code", monospace;
   font-size: 0.75em;
   font-weight: 600;
 }
@@ -648,8 +691,9 @@ input:checked + .slider:before {
   padding: 0 10px;
 }
 
-.like button:hover, .delete:hover {
-  color: #3F1583;
+.like button:hover,
+.delete:hover {
+  color: #3f1583;
 }
 
 /* scroll */
@@ -664,7 +708,6 @@ input:checked + .slider:before {
 }
 /*------------*/
 
-
 /* mobile e desktop*/
 .mobile {
   display: block;
@@ -672,11 +715,6 @@ input:checked + .slider:before {
 
 .desktop {
   display: none;
-}
-
-.profile {
-  display: flex;
-  justify-content: space-around;
 }
 /*------------*/
 
@@ -714,6 +752,11 @@ input:checked + .slider:before {
 
   .register {
     width: 25vw;
+  }
+
+  nav label {
+    display: flex;
+    align-items: center;
   }
 
   .post,

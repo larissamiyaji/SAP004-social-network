@@ -1,15 +1,21 @@
-export const getUserName = () => {
-  return firebase.auth().currentUsergetUrlPhoto != null
-    ? firebase.auth().currentUser.displayName
-    : "";
+export const updateProfileName = (user, newName) => {
+  firebase
+    .auth()
+    .then((user) => {
+      user.updateProfile({displayName: newName,})    
+    });
 };
 
-export const getUrlPhoto = () => {
-  if (firebase.auth().currentUser != null) {
-    return firebase.auth().currentUser.photoURL;
-  }
-};
+/*
+.update({
+  userName: updateProfileName(newName),
+  user: user.uid,
+  mentor: false,
+  languages: [],
+})*/
 
+
+/*
 export const resetEmail = (userResetPassword) => {
   firebase
     .auth()
@@ -43,3 +49,14 @@ export const updateProfile = (profile, callback) => {
       console.error("Error removing document: ", error);
     });
 };
+
+// Logout redirecting to the #login page
+export const logout = () => {
+  firebase
+    .auth()
+    .signOut()
+    .then(() => {
+      window.location.href = "#login";
+    });
+};
+*/

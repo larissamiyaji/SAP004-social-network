@@ -14,19 +14,19 @@ export const home = (user) => {
 
   container.innerHTML = ` 
     <header>
-    <div id="menu-bar">
-      <div id="menu">
-        <div id="bar1" class="bar"></div>
-        <div id="bar2" class="bar"></div>
-        <div id="bar3" class="bar"></div>
-      </div>
-      <ul class="nav-home" id="nav-home">
-        <li id="li-logout"><a href="">Logout</a></li>
-        <li id="li-profile"><a href="#profile">Perfil</a></li>
-      </ul>
-    </div>
-    <div class="menu-bg" id="menu-bg"></div>
       <nav>
+        <div id="menu-bar">
+        <div id="menu">
+          <div id="bar1" class="bar"></div>
+          <div id="bar2" class="bar"></div>
+          <div id="bar3" class="bar"></div>
+        </div>
+        <ul class="nav-home" id="nav-home">
+          <li id="li-profile"><a href="#profile">Perfil</a></li>
+          <li id="li-logout"><a href="">Sair</a></li>
+        </ul>
+        </div>
+        <div class="menu-bg" id="menu-bg"></div>
         <h1 id='logo-home'>mentor<strong id='strong'>she</strong></h1>
         <label>
           <img src='./img/logout.svg' alt="Ícone de uma porta aberta">
@@ -34,20 +34,24 @@ export const home = (user) => {
         </label>
       </nav>
     </header>
-    <div class='flex row-desk'>
-      <section class='profile'>
-        <figure>
-          <img src='' alt="Foto do perfil">
-        </figure>
-        <div>
-          <figure>
-            <img src='' alt='Foto da usuária'>
-            <figcaption></figcaption>
-          </figure>
-        </div>
-      </section>
-      <section class='news'>
-        <div class='flex'>
+    <div class='flex space row-desk'>
+      <div class='flex'>
+        <section class='profile'>
+          <div class='background'>
+            <figure>
+              <img src='https://firebasestorage.googleapis.com/v0/b/social-network-2b0a2.appspot.com/o/background.png?alt=media&token=8090072e-059b-4894-8656-ce8d944ce970' alt='Fundo violeta com símbolos a esquerda: estrelas, bolinhas'>
+            </figure>
+          </div>
+          <div class='photo-name'>
+            <figure>
+              <img src='${user.photoURL}' alt='Foto da usuária'>
+              <figcaption>${user.displayName}</figcaption>
+            </figure>
+          </div>
+        </section>
+      </div>
+      <div class='flex'>
+        <section class='news'>
           <form id='post-form' class='post'>
             <textarea name='post' id='post-text' placeholder='Compartilhe Conhecimento!'></textarea>
             <div class='post-options'>
@@ -61,9 +65,9 @@ export const home = (user) => {
               <button id='publish' type='submit'>Compartilhar</button>
             </div>
           </form>
-        </div>
-        <section id='timeline'></section>
-      </section>
+          <section id='timeline'></section>
+        </section>
+      </div>
     </div>
     `;
 
@@ -140,26 +144,21 @@ export const home = (user) => {
         const likeButton = template.querySelector("#like-button");
         const deletePostBtn = template.querySelector("#delete-post");
         const editPrivacy = template.querySelector("#editPrivacy");      
-       
 
         // Identifies if the currentUser has editing privileges
         function loggedUser() {
-          firebase.auth().onAuthStateChanged((user) => {
-            if (user) {
-              if (user.uid === post.user) {
-                editButton.hidden = false;
-                cancelEditBtn.hidden = true;
-                saveEditBtn.hidden = true;
-                privateBtns.style.visibility = "visible";
-              } else {
-                editButton.hidden = true;
-                cancelEditBtn.hidden = true;
-                saveEditBtn.hidden = true;
-                privateBtns.style.visibility = "hidden";
-              }
-            }
-          });
-        }
+          if (user.uid === post.user) {
+            editButton.hidden = false;
+            cancelEditBtn.hidden = true;
+            saveEditBtn.hidden = true;
+            privateBtns.style.visibility = "visible";
+          } else {
+            editButton.hidden = true;
+            cancelEditBtn.hidden = true;
+            saveEditBtn.hidden = true;
+            privateBtns.style.visibility = "hidden";
+          }
+        };
 
         // Enables the textarea to edit the post
         editButton.addEventListener("click", (event) => {
@@ -194,7 +193,7 @@ export const home = (user) => {
         // Likes the post and deslikes on second click
         likeButton.addEventListener("click", (event) => {
           event.preventDefault();
-          likePost(likeButton.dataset.postid, firebase.auth().currentUser.uid);
+          likePost(likeButton.dataset.postid, user.uid);
         });
 
         // Deletes the post when clicked
@@ -212,8 +211,6 @@ export const home = (user) => {
           }
         };
 
-        }
-
         editPrivacy.addEventListener("change", (event) => {
           event.preventDefault();
           updatePrivacy(editPrivacy.dataset.postid, editPrivacy.checked);
@@ -225,7 +222,7 @@ export const home = (user) => {
             text.style.height = "auto";
             text.style.height = text.scrollHeight + "px";
           });
-        }
+        };
 
         loggedUser();
         resizeTextArea();
@@ -238,23 +235,21 @@ export const home = (user) => {
   };
 
   // Refresh timeline
-  setTimeout(() => { timeline.innerHtml = loadPosts(user, postTemplate); }, 100);
+  loadPosts(user, postTemplate);
 
   // Generates new post when clicked
   postButton.addEventListener("click", (event) => {
     event.preventDefault();
     if (textPost.value === "") return;
-    newPost(textPost.value, postPrivate.checked);
+    newPost(user, textPost.value, postPrivate.checked);
     textPost.value = "";
     timeline.innerHTML = "";
     loadPosts(user, postTemplate);
     resetForm.reset();
   });
 
-
   // Logout when clicked
   const buttonLogout = container.querySelector("#logout");
   buttonLogout.addEventListener("click", logout);
-
   return container;
 };

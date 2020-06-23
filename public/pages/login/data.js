@@ -5,6 +5,7 @@ export const toggleSignIn = ({ email, password }, callback) => {
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
       callback(user);
+      checkUser(user);
     })
     .catch((error) => {
       callback(error);
@@ -17,11 +18,9 @@ export const loginGoogle = () => {
   firebase
     .auth()
     .signInWithPopup(provider)
-    .then(() => {
+    .then((user) => {
       window.location.hash = 'home';
-    })
-    .catch((error) => {
-      handleError(error);
+      checkUser(user.user);
     });
 };
 
@@ -32,11 +31,39 @@ export const loginGithub = () => {
   firebase
     .auth()
     .signInWithPopup(provider)
-    .then(() => {
+    .then((user) => {
       window.location.hash = 'home';
-    })
-    .catch((error) => {
-      handleError(error);
+      checkUser(user.user);
     });
 };
 
+export const newUser = (user) => {
+  console.log(user);
+  firebase
+    .firestore()
+    .collection('users').doc(user.uid)
+    .set({
+      userName: user.displayName,
+      user: user.uid,
+      mentor: false,
+      languages: [],
+    })
+    .then((docRef) => {
+      console.log("Document written with ID: ", docRef.id);
+    })
+    .catch((error) => {
+      console.error("Error adding document: ", error);
+    });
+};
+
+export const checkUser = (user) => {
+  console.log(user);
+  const load = firebase
+  .firestore()
+  .collection('users').doc(user.uid)
+  load.get().then((doc) => {
+    if (!doc.exists) {
+      newUser(user);
+    }
+  });
+};

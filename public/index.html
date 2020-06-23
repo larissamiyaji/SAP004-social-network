@@ -12,14 +12,10 @@
     />
     <title>MentorShe</title>
 
-    <!-- update the version number as needed -->
     <script defer src="/__/firebase/7.14.6/firebase-app.js"></script>
-    <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/7.14.6/firebase-auth.js"></script>
     <script defer src="/__/firebase/7.14.6/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/7.14.6/firebase-messaging.js"></script>
     <script defer src="/__/firebase/7.14.6/firebase-storage.js"></script>
-    <!-- initialize the SDK after all desired features are loaded -->
     <script defer src="/__/firebase/init.js"></script>
   </head>
   <body>
@@ -27,19 +23,9 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function () {
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-        // // The Firebase SDK is initialized and available here!
-        //
-        // firebase.auth().onAuthStateChanged(user => { });
-        // firebase.database().ref('/path/to/ref').on('value', snapshot => { });
-        // firebase.messaging().requestPermission().then(() => { });
-        // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { });
-        //
-        // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
-
         try {
           let app = firebase.app();
-          let features = ["auth", "firestore", "messaging", "storage"].filter(
+          let features = ["auth", "firestore", "storage"].filter(
             (feature) => typeof app[feature] === "function"
           );
         } catch (e) {
