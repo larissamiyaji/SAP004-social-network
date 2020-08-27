@@ -16,10 +16,10 @@ export const updateProfile = (user, newName, newMentorship, newLanguages) => {
     })
     .then(() => {
       updateProfileName(newName);
-      console.log("Edited user successfully!");
+      console.log('Edited user successfully!');
     })
     .catch(() => {
-      console.error("You cannot cancel this edit");
+      console.error('You cannot cancel this edit');
     });
 };
 
@@ -28,6 +28,6 @@ export const logout = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.href = "#login";
+      window.location.href = '#login';
     });
 };

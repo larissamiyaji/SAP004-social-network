@@ -117,8 +117,8 @@ TIPOGRAFIA: Buscando harmonia com as cores e estilos próprios, optamos por usar
 
 ## 8. Autores
 
-* ![Larissa Miyaji](https://github.com/larissamiyaji)
+* [Larissa Miyaji](https://github.com/larissamiyaji)
 
-* ![Kelly Alves](https://github.com/kellyalves87)
+* [Kelly Alves](https://github.com/kellyalves87)
 
-* ![Tamires Cordeiro](https://github.com/mirescordeiro)
+* [Tamires Cordeiro](https://github.com/mirescordeiro)

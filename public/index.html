@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <link rel="stylesheet" href="./style.css" />
-    <link rel="icon" type="image/png" href="./img/logo_icon.png" sizes="16x16" />
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <link rel='stylesheet' href='./style.css' />
+    <link rel='icon' type='image/png' href='./img/logo_icon.png' sizes='16x16' />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700;900&display=swap"
-      rel="stylesheet"
+      href='https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Source+Sans+Pro:wght@400;600;700;900&display=swap'
+      rel='stylesheet'
     />
     <title>MentorShe</title>
 
-    <script defer src="/__/firebase/7.14.6/firebase-app.js"></script>
-    <script defer src="/__/firebase/7.14.6/firebase-auth.js"></script>
-    <script defer src="/__/firebase/7.14.6/firebase-firestore.js"></script>
-    <script defer src="/__/firebase/7.14.6/firebase-storage.js"></script>
-    <script defer src="/__/firebase/init.js"></script>
+    <script defer src='/__/firebase/7.14.6/firebase-app.js'></script>
+    <script defer src='/__/firebase/7.14.6/firebase-auth.js'></script>
+    <script defer src='/__/firebase/7.14.6/firebase-firestore.js'></script>
+    <script defer src='/__/firebase/7.14.6/firebase-storage.js'></script>
+    <script defer src='/__/firebase/init.js'></script>
   </head>
   <body>
-    <main id="root"></main>
+    <main id='root'></main>
 
     <script>
-      document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener('DOMContentLoaded', function () {
         try {
           let app = firebase.app();
-          let features = ["auth", "firestore", "storage"].filter(
-            (feature) => typeof app[feature] === "function"
+          let features = ['auth', 'firestore', 'storage'].filter(
+            (feature) => typeof app[feature] === 'function'
           );
         } catch (e) {
           console.error(e);
-          document.getElementById("load").innerHTML =
-            "Error loading the Firebase SDK, check the console.";
+          document.getElementById('load').innerHTML =
+            'Error loading the Firebase SDK, check the console.';
         }
       });
     </script>
-    <script type="module" src="index.js"></script>
+    <script type='module' src='index.js'></script>
   </body>
 </html>

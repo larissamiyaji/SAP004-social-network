@@ -6,33 +6,33 @@ import {
   logout,
   updateEdit,
   updatePrivacy,
-} from "./data.js";
+} from './data.js';
 
 export const home = (user) => {
-  const container = document.createElement("div");
-  container.classList.add("container-home");
+  const container = document.createElement('div');
+  container.classList.add('container-home');
 
   container.innerHTML = ` 
     <header>
       <nav>
-        <div id="menu-bar" class='menu-bar'>
-          <div id="menu" class='menu'>
-            <div id="bar1" class="bar"></div>
-            <div id="bar2" class="bar"></div>
-            <div id="bar3" class="bar"></div>
+        <div id='menu-bar' class='menu-bar'>
+          <div id='menu' class='menu'>
+            <div id='bar1' class='bar'></div>
+            <div id='bar2' class='bar'></div>
+            <div id='bar3' class='bar'></div>
           </div>
-          <ul class="nav-home" id="nav-home">
-            <li id="li-profile"><a href="#profile">Perfil</a></li>
-            <li id="li-logout"><a href="">Sair</a></li>
+          <ul class='nav-home' id='nav-home'>
+            <li id='li-profile'><a href='#profile'>Perfil</a></li>
+            <li id='li-logout'><a href=''>Sair</a></li>
           </ul>
         </div>
-        <div class="menu-bg" id="menu-bg"></div>
+        <div class='menu-bg' id='menu-bg'></div>
         <div class='menu-desk'>
           ${user.displayName} <a href='#profile'><span class='icon-profile'></span></a>
         </div>
         <h1 id='logo-home'>mentor<strong id='strong'>she</strong></h1>
         <label>
-          <img src='./img/logout.svg' alt="Ícone de uma porta aberta">
+          <img src='./img/logout.svg' alt='Ícone de uma porta aberta'>
           <button id='logout'>Sair</button>
         </label>
       </nav>
@@ -64,9 +64,9 @@ export const home = (user) => {
             <div class='post-options'>
               <div class='privacy'>
                 <label>PRIVADO</label>
-                <label class="switch">
-                  <input type="checkbox" id="privacy">
-                  <span class="slider round"></span>
+                <label class='switch'>
+                  <input type='checkbox' id='privacy'>
+                  <span class='slider round'></span>
                 </label>
               </div>
               <button id='publish' type='submit'>Compartilhar</button>
@@ -79,55 +79,54 @@ export const home = (user) => {
     <footer class='flex center nav-footer'>
         <p>© Desenvolvido por <a href='https://github.com/larissamiyaji'>Larissa</a>, <a href='https://github.com/kellyalves87'>Kelly</a> e <a href='https://github.com/mirescordeiro'>Tamires</a></p>
     </footer>
-    `; 
+    `;
 
-  const menu = container.querySelector("#menu");
+  const menu = container.querySelector('#menu');
   const menuLogout = container.querySelector('#li-logout');
-  menu.addEventListener("click", showMenu);
-  menuLogout.addEventListener("click", logout);
+  menu.addEventListener('click', showMenu);
+  menuLogout.addEventListener('click', logout);
 
   function showMenu() {
-    container.querySelector("#menu").classList.toggle("change");
-    container.querySelector("#nav-home").classList.toggle("change");
-    container.querySelector("#menu-bg").classList.toggle("change-bg");
+    container.querySelector('#menu').classList.toggle('change');
+    container.querySelector('#nav-home').classList.toggle('change');
+    container.querySelector('#menu-bg').classList.toggle('change-bg');
   }
 
-  const resetForm = container.querySelector("#post-form");
-  const textPost = container.querySelector("#post-text");
-  const postButton = container.querySelector("#publish");
-  const postPrivate = container.querySelector("#privacy");
-  const timeline = container.querySelector("#timeline");
+  const resetForm = container.querySelector('#post-form');
+  const textPost = container.querySelector('#post-text');
+  const postButton = container.querySelector('#publish');
+  const postPrivate = container.querySelector('#privacy');
+  const timeline = container.querySelector('#timeline');
 
-  
   firebase
     .firestore()
     .collection('users')
     .doc(user.uid)
     .onSnapshot((doc) => {
-      if(doc.data().languages !== ''){
+      if (doc.data().languages !== '') {
         container.querySelector('#languages').innerHTML = `
           <div class='languages'>
             <h3>Linguagens</h3>
             <p>${doc.data().languages}</p>
           </div>
-        `;         
-      } 
-      container.querySelector('#mentorship').innerHTML = doc.data().mentorship;  
+        `;
+      }
+      container.querySelector('#mentorship').innerHTML = doc.data().mentorship;
     });
 
   const postTemplate = (array) => {
-    timeline.innerHTML = "";
+    timeline.innerHTML = '';
 
     array
       .map((post) => {
-        const template = document.createElement("div");
-        template.classList.add("flex");
+        const template = document.createElement('div');
+        template.classList.add('flex');
 
         template.innerHTML = `        
         <form id='template-form' class='all-posts'>
           <div class='top'>
             <figure>
-              <img src="${post.photoURL}" alt="Foto da usuária">
+              <img src='${post.photoURL}' alt='Foto da usuária'>
               <figcaption>${post.userName}</figcaption>
             </figure>
             <div class='edit'>
@@ -147,9 +146,9 @@ export const home = (user) => {
             <div id='private' class='private'>
               <div class='privacy'>
                 <label>PRIVADO</label>
-                <label class="switch">
-                  <input type="checkbox" id="editPrivacy" data-postid=${post.id}>
-                  <span class="slider round"></span>
+                <label class='switch'>
+                  <input type='checkbox' id='editPrivacy' data-postid=${post.id}>
+                  <span class='slider round'></span>
                 </label>
               </div>
               <button id='delete-post' class='delete' data-postid=${post.id}><span class='icon-delete'></span></button>
@@ -158,32 +157,32 @@ export const home = (user) => {
         </div>
       </form>
         `;
-        
-        const resetFormTemplate = template.querySelector("#template-form");
-        const privateBtns = template.querySelector("#private");
-        const editButton = template.querySelector("#edit-button");
-        const cancelEditBtn = template.querySelector("#cancel-edit");
-        const saveEditBtn = template.querySelector("#save-edit");
-        const editTextArea = template.querySelector("#edit-text-area");
-        const likeButton = template.querySelector("#like-button");
-        const deletePostBtn = template.querySelector("#delete-post");
-        const editPrivacy = template.querySelector("#editPrivacy");      
+
+        const resetFormTemplate = template.querySelector('#template-form');
+        const privateBtns = template.querySelector('#private');
+        const editButton = template.querySelector('#edit-button');
+        const cancelEditBtn = template.querySelector('#cancel-edit');
+        const saveEditBtn = template.querySelector('#save-edit');
+        const editTextArea = template.querySelector('#edit-text-area');
+        const likeButton = template.querySelector('#like-button');
+        const deletePostBtn = template.querySelector('#delete-post');
+        const editPrivacy = template.querySelector('#editPrivacy');
 
         function userCanEdit() {
           if (user.uid === post.user) {
             editButton.hidden = false;
             cancelEditBtn.hidden = true;
             saveEditBtn.hidden = true;
-            privateBtns.style.visibility = "visible";
+            privateBtns.style.visibility = 'visible';
           } else {
             editButton.hidden = true;
             cancelEditBtn.hidden = true;
             saveEditBtn.hidden = true;
-            privateBtns.style.visibility = "hidden";
+            privateBtns.style.visibility = 'hidden';
           }
         };
 
-        editButton.addEventListener("click", (event) => {
+        editButton.addEventListener('click', (event) => {
           event.preventDefault();
           editButton.hidden = true;
           cancelEditBtn.hidden = false;
@@ -191,7 +190,7 @@ export const home = (user) => {
           editTextArea.disabled = false;
         });
 
-        cancelEditBtn.addEventListener("click", (event) => {
+        cancelEditBtn.addEventListener('click', (event) => {
           event.preventDefault();
           editButton.hidden = false;
           cancelEditBtn.hidden = true;
@@ -200,7 +199,7 @@ export const home = (user) => {
           resetFormTemplate.reset();
         });
 
-        saveEditBtn.addEventListener("click", (event) => {
+        saveEditBtn.addEventListener('click', (event) => {
           event.preventDefault();
           editButton.hidden = false;
           cancelEditBtn.hidden = true;
@@ -210,12 +209,12 @@ export const home = (user) => {
           resetForm.reset();
         });
 
-        likeButton.addEventListener("click", (event) => {
+        likeButton.addEventListener('click', (event) => {
           event.preventDefault();
           likePost(likeButton.dataset.postid, user.uid);
         });
 
-        deletePostBtn.addEventListener("click", (event) => {
+        deletePostBtn.addEventListener('click', (event) => {
           event.preventDefault();
           deletePost(deletePostBtn.dataset.postid);
         });
@@ -228,15 +227,15 @@ export const home = (user) => {
           }
         };
 
-        editPrivacy.addEventListener("change", (event) => {
+        editPrivacy.addEventListener('change', (event) => {
           event.preventDefault();
           updatePrivacy(editPrivacy.dataset.postid, editPrivacy.checked);
         });
 
         function resizeTextArea() {
-          timeline.querySelectorAll("textarea").forEach((text) => {
-            text.style.height = "auto";
-            text.style.height = text.scrollHeight + "px";
+          timeline.querySelectorAll('textarea').forEach((text) => {
+            text.style.height = 'auto';
+            text.style.height = text.scrollHeight + 'px';
           });
         };
 
@@ -246,22 +245,22 @@ export const home = (user) => {
 
         timeline.appendChild(template);
       })
-      .join("");
+      .join('');
   };
 
   loadPosts(user, postTemplate);
 
-  postButton.addEventListener("click", (event) => {
+  postButton.addEventListener('click', (event) => {
     event.preventDefault();
-    if (textPost.value === "") return;
+    if (textPost.value === '') return;
     newPost(user, textPost.value, postPrivate.checked);
-    textPost.value = "";
-    timeline.innerHTML = "";
+    textPost.value = '';
+    timeline.innerHTML = '';
     loadPosts(user, postTemplate);
     resetForm.reset();
   });
 
-  const logoutButton = container.querySelector("#logout");
-  logoutButton.addEventListener("click", logout);
+  const logoutButton = container.querySelector('#logout');
+  logoutButton.addEventListener('click', logout);
   return container;
 };

@@ -1,5 +1,5 @@
 {
-  "projects": {
-    "default": "social-network-2b0a2"
+  'projects': {
+    'default': 'social-network-2b0a2'
   }
 }

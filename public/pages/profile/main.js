@@ -1,39 +1,39 @@
 import {
   updateProfile, logout
-} from "./data.js";
+} from './data.js';
 
 export const profile = (user) => {
-  const container = document.createElement("div");
-  container.classList.add("container-profile");
+  const container = document.createElement('div');
+  container.classList.add('container-profile');
 
     container.innerHTML = `
     <header>
       <nav>
-        <div id="menu-bar" class='menu-bar'>
-          <div id="menu" class='menu'>
-            <div id="bar1" class="bar"></div>
-            <div id="bar2" class="bar"></div>
-            <div id="bar3" class="bar"></div>
+        <div id='menu-bar' class='menu-bar'>
+          <div id='menu' class='menu'>
+            <div id='bar1' class='bar'></div>
+            <div id='bar2' class='bar'></div>
+            <div id='bar3' class='bar'></div>
           </div>
-          <ul class="nav-home" id="nav-home">
-            <li id="li-profile"><a href="#home">Feed</a></li>
-            <li id="li-logout"><a href="">Sair</a></li>
+          <ul class='nav-home' id='nav-home'>
+            <li id='li-profile'><a href='#home'>Feed</a></li>
+            <li id='li-logout'><a href=''>Sair</a></li>
           </ul>
         </div>
-        <div class="menu-bg" id="menu-bg"></div>
+        <div class='menu-bg' id='menu-bg'></div>
         <div class='menu-desk'>
           ${user.displayName} <a href='#home'><span class='icon-profile'></span></a>
         </div>
         <h1 id='logo-home'>mentor<strong id='strong'>she</strong></h1>
         <label>
-          <img src='./img/logout.svg' alt="Ícone de uma porta aberta">
+          <img src='./img/logout.svg' alt='Ícone de uma porta aberta'>
           <button id='logout'>Sair</button>
         </label>
       </nav>
     </header>
       <section id='user-profile' class='flex center column fullheight info'>
-        <figure class="photo-profile">
-          <img src='${user.photoURL}' alt="Foto do perfil">
+        <figure class='photo-profile'>
+          <img src='${user.photoURL}' alt='Foto do perfil'>
         </figure>
         <h2>Perfil</h2>
         <form id='resetForm' class='flex column center'>
@@ -64,17 +64,17 @@ export const profile = (user) => {
       container.querySelector('#mentor-student').value = doc.data().mentorship;  
     });
   
-    const logoutButton = container.querySelector("#logout");
-    const menu = container.querySelector("#menu");
+    const logoutButton = container.querySelector('#logout');
+    const menu = container.querySelector('#menu');
     const menuLogout = container.querySelector('#li-logout');
-    menu.addEventListener("click", showMenu);
-    menuLogout.addEventListener("click", logout);
+    menu.addEventListener('click', showMenu);
+    menuLogout.addEventListener('click', logout);
     logoutButton.addEventListener('click', logout);
     
     function showMenu() {
-      container.querySelector("#menu").classList.toggle("change");
-      container.querySelector("#nav-home").classList.toggle("change");
-      container.querySelector("#menu-bg").classList.toggle("change-bg");
+      container.querySelector('#menu').classList.toggle('change');
+      container.querySelector('#nav-home').classList.toggle('change');
+      container.querySelector('#menu-bg').classList.toggle('change-bg');
     }
 
     const newName = container.querySelector('#new-name');

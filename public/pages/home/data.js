@@ -1,7 +1,7 @@
 export const newPost = (user, textareaPost, postPrivate) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .add({
       userName: user.displayName,
       photoURL: user.photoURL,
@@ -13,10 +13,10 @@ export const newPost = (user, textareaPost, postPrivate) => {
       privacy: postPrivate,
     })
     .then((docRef) => {
-      console.log("Document written with ID: ", docRef.id);
+      console.log('Document written with ID: ', docRef.id);
     })
     .catch((error) => {
-      console.error("Error adding document: ", error);
+      console.error('Error adding document: ', error);
     });
 };
 
@@ -42,37 +42,37 @@ export const loadPosts = (user, callback) => {
 export const deletePost = (postId) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .doc(postId)
     .delete()
     .then(() => {
-      console.log("Document successfully deleted!");
+      console.log('Document successfully deleted!');
     })
     .catch((error) => {
-      console.error("Error removing document: ", error);
+      console.error('Error removing document: ', error);
     });
 };
 
 export const updatePrivacy = (postId, editPrivacy) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .doc(postId)
     .update({
       privacy: editPrivacy,
     })
     .then(() => {
-      console.log("Privacy settings successfully changed!");
+      console.log('Privacy settings successfully changed!');
     })
     .catch((error) => {
-      console.error("Error changing privacy status: ", error);
+      console.error('Error changing privacy status: ', error);
     });
 };
 
 export const likePost = (postId, userId) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .doc(postId)
     .get()
     .then((doc) => {
@@ -92,40 +92,40 @@ export const likePost = (postId, userId) => {
       updateEdit(userIds, postId);
     })
     .catch((error) => {
-      //  console.log('error');
+      console.error('Error');
     });
 };
 
 const updateLike = (countLike, userArray, postId) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .doc(postId)
     .update({
       likes: countLike,
       likeUsers: userArray,
     })
     .then(() => {
-      console.log("Like successfully included!");
+      console.log('Like successfully included!');
     })
     .catch((error) => {
-      console.error("Error liking document: ", error);
+      console.error('Error liking document: ', error);
     });
 };
 
 export const updateEdit = (postId, textareaPost) => {
   firebase
     .firestore()
-    .collection("posts")
+    .collection('posts')
     .doc(postId)
     .update({
       text: textareaPost,
     })
     .then(() => {
-      console.log("Edit post successfully!");
+      console.log('Edit post successfully!');
     })
     .catch(() => {
-      console.error("You cannot cancel this edit!");
+      console.error('You cannot cancel this edit!');
     });
 };
 
@@ -141,10 +141,10 @@ export const updateProfile = (user, newName, newMentorship, newLanguages) => {
     })
     .then(() => {
       updateProfileName(newName);
-      console.log("Edited user successfully!");
+      console.log('Edited user successfully!');
     })
     .catch(() => {
-      console.error("You cannot cancel this edit");
+      console.error('You cannot cancel this edit');
     });
 };
 
@@ -153,6 +153,6 @@ export const logout = () => {
     .auth()
     .signOut()
     .then(() => {
-      window.location.href = "#login";
+      window.location.href = '#login';
     });
 };
