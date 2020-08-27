@@ -15,7 +15,7 @@
 
 ## 1. Produto
 
-Desenvolvemos uma rede social de mentoria para mulheres. Nela, mentoras e mentoradas podem trocar conhecimentos e experiências sobre programação em geral em um ambiente seguro e acolhedor.
+Desenvolvemos uma rede social de mentoria para mulheres. Nela, mentoras e mentoradas podem trocar conhecimentos e experiências sobre programação em geral em um ambiente seguro e acolhedor. Acesse o site através do link: https://social-network-2b0a2.web.app/
 
 ## 2. Protopersona
 
@@ -50,11 +50,11 @@ Precisa de um ambiente seguro onde consiga compartilhar seus conhecimentos e exp
 
 Tendo como referência as necessidades da **Maria Carneiro**, elaboramos o seguinte épico para nossas quatro sprints de desenvolvimento:
 
-- Ter uma rede social onde fosse possível logar com e-mail, conta do google ou github. Após logada, poder compartilhar mensagens tanto públicas quanto privadas. Poder editar seus posts, bem como cancelar esta edição e voltar ao conteúdo original. Poder curtir as mensagens postadas por outras mentoras e mentoradas. Poder deletar as mensagens, alterar o seu perfil e fazer update de fotos.
+- Ter uma rede social onde fosse possível logar com e-mail, conta do google ou github. Após logada, poder compartilhar mensagens tanto públicas quanto privadas. Poder editar seus posts, bem como cancelar esta edição e voltar ao conteúdo original. Poder curtir as mensagens postadas por outras mentoras e mentoradas. Poder deletar as mensagens, alterar o seu perfil.
 
 ## 4. Prototipação
 
-Para este projeto, tivemos acesso ao layout da tela mobile e desktop em que deveriamos replicar visualmente e cujo conteúdo, cores e fontes de texto ficou ao nosso critério de acordo com o resultado do nosso benchmarking.
+Para este projeto, tivemos acesso ao layout da tela mobile e desktop em que deveríamos replicar visualmente e cujo conteúdo, cores e fontes de texto ficou ao nosso critério de acordo com o resultado do nosso benchmarking.
 
 Estas foram os layouts propostos:
 
@@ -70,21 +70,21 @@ Estas foram os layouts propostos:
 
 Análise de melhores práticas no mercado
 
-Com o layout pré definido, passamos para a busca de referências visuais. Pesquisamos diversos sites de tecnologia de iniciativas femininas para encontramos inspirações de cores, fontes e nome da nossa rede social.
+Com o layout pré definido, passamos para a busca de referências visuais. Pesquisamos diversos sites de tecnologia de iniciativas para mulheres onde encontramos inspirações de cores, fontes e nome da nossa rede social.
 
-Após o contato com diversos sites, fóruns e páginas ligadas a programação, chegamos a conclusão de que um desenho de página minimalista com uma paleta de cores em tons femininos, traria maior destaque ao conteúdo.
+Após o contato com diversos sites, fóruns e páginas ligadas a programação, chegamos a conclusão de que um desenho de página clean com uma paleta de cores em tons violeta.
 
 ## 5. UX
 
-Pensando na praticidade de entrar na rede social, na página de login, optamos por disponibilizar três formas do usuário logar, sendo elas: e-mail, conta google ou conta github. Assim que logado, o usuário já tem acesso ao feed onde consegue visualizar todos os posts e a área onde pode fazer seus próprios posts de forma publica ou privada, e no menu hamburguer ele pode optar por ir até a página de perfil ou por fazer o logout.
+Pensando na praticidade de entrar na rede social, na página de login, optamos por disponibilizar três formas do usuário logar, sendo elas: e-mail, conta google ou conta github. Assim que logado, o usuário já tem acesso ao feed onde consegue visualizar todos os posts e criar seus próprios de forma pública ou privada. Na navegação mobile, temos um menu hamburguer em que se pode optar por ir até a página de perfil ou por fazer o logout.
 
-Pensando na disposição de botões em telas reduzidas estudamos o uso de ícones para as funções de navegação, edição, curtidas e privacidade somadas a palavras curtas reforçando sua leitura e aumentando assim sua acessibilidade.
+Pensando na disposição de botões em telas reduzidas estudamos o uso de ícones para as curtidas e exclusão de posts. Para a privacidade, optamos por um botão toggle que quando acionado torna privado o post selecionado.
 
 Acesse o protótipo de baixa fidelidade clicando nas imagens abaixo:
 
 * Versão Mobile
 
-    ![casastro](./public/img/Cadastro.png)
+    ![cadastro](./public/img/Cadastro.png)
 
     ![login](./public/img/loginMobile.png)
 
@@ -102,9 +102,7 @@ Acesse o protótipo de baixa fidelidade clicando nas imagens abaixo:
 
 Tendo validado nosso protótipo e reunido referências visuais, só nos restava aplicar estes conceitos nas escolhas do design de interface.
 
-Seguindo noções de material e flat design projetamos a interface com alguns aspectos em mente:
-
-CORES: Utilizamos uma paleta de cores que remetesse a feminilidade e a criatividade. As cores que escolhemos de acordo com a psicologia das cores remetem a criatividade, motivção, pureza e fé.
+CORES: Utilizamos uma paleta de cores violeta. As cores que escolhemos de acordo com a psicologia das cores remetem a criatividade, motivação, pureza e fé.
 TIPOGRAFIA: Buscando harmonia com as cores e estilos próprios, optamos por usar uma tipografia que remete ao mundo da programação.
 
 ## 7. Tecnologias utilizadas
